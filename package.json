@@ -1,0 +1,13 @@
+{
+  "name": "proxy-kiro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Zero-dependency Node.js app-level relay for Kiro (AWS CodeWhisperer): /kiro/<path> -> codewhisperer.us-east-1.amazonaws.com, SSE-safe, gated by x-relay-key",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

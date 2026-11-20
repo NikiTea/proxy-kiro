@@ -1,0 +1,20 @@
+[Unit]
+Description=proxy-kiro: Node.js relay for Kiro (AWS CodeWhisperer)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Use a dedicated unprivileged user or www-data (both exist on most distros;
+# create the dedicated one with: useradd -r -s /usr/sbin/nologin proxykiro)
+User=www-data
+WorkingDirectory=/opt/proxy-kiro
+EnvironmentFile=/opt/proxy-kiro/.env
+ExecStart=/usr/bin/env node server.js
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
